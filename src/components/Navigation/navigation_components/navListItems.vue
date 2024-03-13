@@ -1,0 +1,34 @@
+import navBottomFeatures from './navBottomFeatures.vue';
+
+import navBottomFeatures from './navBottomFeatures.vue';
+<template>
+    <v-card>
+        <v-layout>
+            <v-navigation-drawer expand-on-hover rail>
+
+                <navUserTab />
+
+                <v-divider></v-divider>
+
+                <v-list density="compact" nav>
+                    <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard-variants"></v-list-item>
+                    <v-list-item prepend-icon="mdi-bookshelf" title="Cataloging" value="organization-of-books"></v-list-item>
+                    <v-list-item prepend-icon="mdi-book-account" title="Borrowing" value="circulation"></v-list-item>
+                    <v-list-item prepend-icon="mdi-account-cash" title="Payments" value="fine-payments"></v-list-item>
+                    <v-list-item prepend-icon="mdi-file" title="Report" value="book-issue-report"></v-list-item>
+                </v-list>
+
+                <template v-slot:append>
+                    <v-divider></v-divider>
+                    <div class="pb-2">
+                        <v-list-item prepend-icon="mdi-cog-outline" title="Settings" value="setting" to="/setting"></v-list-item>
+                        <v-list-item prepend-icon="mdi-logout" title="Logout" value="logout" to="/logout"></v-list-item>
+                    </div>
+                </template>
+
+            </v-navigation-drawer>
+
+            <v-main style="height: 100vh;"></v-main>
+        </v-layout>
+    </v-card>
+</template>

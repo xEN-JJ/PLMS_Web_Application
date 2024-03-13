@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <NavigationLayoutView />
     <v-main>
       <router-view />
     </v-main>
@@ -7,5 +8,7 @@
 </template>
 
 <script setup>
+import NavigationLayoutView from './layouts/NavigationLayoutView.vue';
+
   //
 </script>
