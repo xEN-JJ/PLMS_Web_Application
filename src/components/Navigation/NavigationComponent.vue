@@ -1,3 +1,6 @@
 <template>
-    <navListItems />
+        <navListItems />
 </template>
+<script setup>
+
+</script>

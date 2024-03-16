@@ -1,6 +1,15 @@
 <template>
   <v-app>
-    <NavigationLayoutView />
+    <v-navigation-drawer expand-on-hover rail>
+      <NavigationComponent />
+    </v-navigation-drawer>
+    <v-app-bar :elevation="2">
+      <template v-slot:append>
+        <AppBarComponents />
+
+      </template>
+
+    </v-app-bar>
     <v-main>
       <router-view />
     </v-main>
@@ -8,7 +17,7 @@
 </template>
 
 <script setup>
-import NavigationLayoutView from './layouts/NavigationLayoutView.vue';
+import AppBarComponents from './components/AppBar/AppBarComponents.vue';
 
-  //
+//
 </script>
