@@ -25,4 +25,4 @@ import AppBarComponents from './components/AppBar/AppBarComponents.vue';
 
 
 //
-</script>./components/AppBar/AppBarComponents.vue
+</script>

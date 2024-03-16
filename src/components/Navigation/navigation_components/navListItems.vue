@@ -1,6 +1,5 @@
 import navBottomFeatures from './navBottomFeatures.vue';
 
-import navBottomFeatures from './navBottomFeatures.vue';
 <template>
     <v-card>
         <v-layout>
@@ -14,11 +13,12 @@ import navBottomFeatures from './navBottomFeatures.vue';
                 <v-list density="compact" nav>
                     <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard-variants"
                         to="/dashboard"></v-list-item>
-                    <v-list-item prepend-icon="mdi-bookshelf" title="Cataloging"
-                        value="organization-of-books" to="/"></v-list-item>
-                    <v-list-item prepend-icon="mdi-book-account" title="Borrowing" value="circulation"
+                    <v-list-item prepend-icon="mdi-bookshelf" title="Cataloging" value="organization-of-books"
+                        to="/Cataloging"></v-list-item>
+                    <v-list-item prepend-icon="mdi-book-account" title="Borrow" value="borrow-variant"
                         to="/borrow"></v-list-item>
-                    <v-list-item prepend-icon="mdi-account-cash" title="Payments" value="fine-payments" to="/"></v-list-item>
+                    <v-list-item prepend-icon="mdi-account-cash" title="Payments" value="fine-payments"
+                        to="/"></v-list-item>
                     <v-list-item prepend-icon="mdi-file" title="Report" value="book-issue-report" to="/"></v-list-item>
                 </v-list>
 

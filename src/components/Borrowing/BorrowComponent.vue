@@ -1,8 +1,14 @@
 <template>
     <v-container>
-        <v-row align="center" no-gutters>
+        <v-row align="start" no-gutters>
             <v-col>
+                <h2>BOOK SELECTION</h2>
                 <v-chip-group v-model="selectedBooks">
+                    <template v-if="selectedBooks.length === 0">
+                        <div class="selected-items-label" disable>
+                            Selected Items
+                        </div>
+                    </template>
                     <v-chip v-for="(book, index) in selectedBooks" :key="index" close
                         @input="removeSelectedBook(index)">
                         {{ book }}
@@ -10,39 +16,32 @@
                 </v-chip-group>
             </v-col>
         </v-row>
+    </v-container>
 
+    <v-container>
         <v-row align="center" no-gutters>
-            <v-col cols="6">
+            <v-col class="pa-2 ma-2">
                 <v-text-field v-model="searchQuery" label="Search" outlined></v-text-field>
             </v-col>
-        </v-row>
 
-        <v-row no-gutters>
-            <v-col cols="12">
-                <v-data-table :headers="headers" :items="filteredBooks" :search="searchQuery" :single-select="false"
-                    item-key="id" show-select class="elevation-1">
-                    <template v-slot:item="{ item }">
-                        <tr>
-                            <td>
-                                <v-checkbox v-model="item.selected" @change="updateSelectedBooks(item)"></v-checkbox>
-                            </td>
-                            <td>{{ item.title }}</td>
-                            <td>{{ item.author }}</td>
-                            <td>{{ item.genre }}</td>
-                        </tr>
-                    </template>
-                </v-data-table>
-            </v-col>
-        </v-row>
+            <v-col class="pa-2 ma-2">
+                <v-row align="center" no-gutters>
+                    <v-col class="pa-2 ma-2">
+                        <v-btn color="primary" @click="submitRequest" :disabled="selectedBooks.length === 0">
+                            Submit
+                        </v-btn>
+                    </v-col>
 
-        <v-row align="center" no-gutters>
-            <v-col cols="12" class="text-center">
-                <v-btn color="primary" @click="submitRequest" :disabled="selectedBooks.length === 0">
-                    Submit Request
-                </v-btn>
+                    <v-col class="pa-2 ma-2">
+                        <v-btn color="primary" @click="showHistory">Show History</v-btn>
+                    </v-col>
+                </v-row>
             </v-col>
         </v-row>
     </v-container>
+
+    <BorrowTable />
+
 </template>
 
 <script>
@@ -52,16 +51,38 @@ export default {
             selectedBooks: [],
             searchQuery: '',
             books: [
-                { id: 1, title: 'Book 1', author: 'Author 1', genre: 'Genre 1', selected: false },
-                { id: 2, title: 'Book 2', author: 'Author 2', genre: 'Genre 2', selected: false },
-                { id: 3, title: 'Book 3', author: 'Author 3', genre: 'Genre 3', selected: false },
+                {
+                    id: 1,
+                    callNo: 'Call No. 1',
+                    title: 'Book 1',
+                    author: 'Author 1',
+                    copyrightDate: '2024',
+                    location: 'Location 1',
+                    edition: '1st Edition',
+                    accessionNumber: 'Accession No. 1',
+                    selected: false,
+                },
+                {
+                    id: 2,
+                    callNo: 'Call No. 2',
+                    title: 'Book 2',
+                    author: 'Author 2',
+                    copyrightDate: '2023',
+                    location: 'Location 2',
+                    edition: '2nd Edition',
+                    accessionNumber: 'Accession No. 2',
+                    selected: false,
+                },
                 // Add more books as needed
             ],
             headers: [
-                { text: 'Select', value: 'selected' },
+                { text: 'Call No.', value: 'callNo' },
                 { text: 'Title', value: 'title' },
                 { text: 'Author', value: 'author' },
-                { text: 'Genre', value: 'genre' },
+                { text: 'Copyright Date', value: 'copyrightDate' },
+                { text: 'Location', value: 'location' },
+                { text: 'Edition', value: 'edition' },
+                { text: 'Accession Number', value: 'accessionNumber' },
             ],
         };
     },
@@ -71,9 +92,12 @@ export default {
                 const query = this.searchQuery.toLowerCase();
                 return this.books.filter(
                     (book) =>
+                        book.callNo.toLowerCase().includes(query) ||
                         book.title.toLowerCase().includes(query) ||
                         book.author.toLowerCase().includes(query) ||
-                        book.genre.toLowerCase().includes(query)
+                        book.location.toLowerCase().includes(query) ||
+                        book.edition.toLowerCase().includes(query) ||
+                        book.accessionNumber.toLowerCase().includes(query)
                 );
             }
             return this.books;
