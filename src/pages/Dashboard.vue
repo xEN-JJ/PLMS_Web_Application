@@ -1,11 +1,21 @@
 <template>
   <v-container>
-    <v-row align="center">
+    <div class="d-flex justify-start">
       <v-col>
-        I AM A DASHBOARD
+        <div>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="text-grey">
+          <h4>
+            Welcome JJ!
+          </h4>
+        </div>
       </v-col>
-    </v-row>
+    </div>
   </v-container>
+  <!-- Add here the layout or the component -->
+    <SystemQuantities />
+
 </template>
 
 <script>

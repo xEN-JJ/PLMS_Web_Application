@@ -16,16 +16,16 @@ const router = createRouter({
   route: [
     {
       path: '/dashboard',
-      name: 'dashboard',
+      name: 'Dashboard',
       component: Dashboard
     },
     {
       path: '/borrow',
-      name: 'borrow',
+      name: 'Borrow',
       component: Borrow
     },
     {
-      path: '/Cataloging',
+      path: '/cataloging',
       name: 'Cataloging',
       component: Cataloging
     }

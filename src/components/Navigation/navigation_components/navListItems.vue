@@ -14,7 +14,7 @@ import navBottomFeatures from './navBottomFeatures.vue';
                     <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard-variants"
                         to="/dashboard"></v-list-item>
                     <v-list-item prepend-icon="mdi-bookshelf" title="Cataloging" value="organization-of-books"
-                        to="/Cataloging"></v-list-item>
+                        to="/cataloging"></v-list-item>
                     <v-list-item prepend-icon="mdi-book-account" title="Borrow" value="borrow-variant"
                         to="/borrow"></v-list-item>
                     <v-list-item prepend-icon="mdi-account-cash" title="Payments" value="fine-payments"
