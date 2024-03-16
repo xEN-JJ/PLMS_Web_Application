@@ -1,4 +1,5 @@
 <template>
+
     <v-container>
         <v-data-table v-model="selected" :items="items" item-value="accessionNumber" show-select></v-data-table>
     </v-container>
