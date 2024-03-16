@@ -91,7 +91,7 @@ export default defineComponent({
             headers: ['Accession No', 'Title', 'Author', 'Genre', 'BookType', 'Date Acquired'],
             books: [
                 {
-                    accessionNo: '001',
+                    accessionNo: '000',
                     title: 'To Kill a Mockingbird',
                     author: 'Harper Lee',
                     genre: 'Fiction',

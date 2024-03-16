@@ -8,8 +8,6 @@
         <AppBarComponents />
 
       </template>
-      <v-app-bar-title>DASHBOARD</v-app-bar-title>
-      
 
     </v-app-bar>
     <v-main>
@@ -20,9 +18,6 @@
 
 <script setup>
 import AppBarComponents from './components/AppBar/AppBarComponents.vue';
-
-
-
 
 //
 </script>
