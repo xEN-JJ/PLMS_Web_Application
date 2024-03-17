@@ -14,12 +14,10 @@
     </div>
   </v-container>
   <!-- Add here the layout or the component -->
-    <SystemQuantities />
-
+  <DashboardLayout />
 </template>
 
 <script>
-export default {
+import DashboardLayoutVue from '../layouts/DashboardLayout.vue'
 
-}
 </script>
